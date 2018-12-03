@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dan Manners Dot Com</title>
+    <link>https://www.danmanners.com/</link>
+    <description>Recent content on Dan Manners Dot Com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Dec 2018 11:57:45 -0500</lastBuildDate>
+    
+	<atom:link href="https://www.danmanners.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>https://www.danmanners.com/about/</link>
+      <pubDate>Sun, 02 Dec 2018 11:57:45 -0500</pubDate>
+      
+      <guid>https://www.danmanners.com/about/</guid>
+      <description>Who the heck is Dan Manners? Dan Manners grew up in Westchester, NY. Between 2010 and 2014, he worked for Production Resource Group as a Systems Administrator I/II locally in their New Jersey, New York, and Los Angeles Offices. While there, he focused on learning and understanding how users need to operate and how to optimize workflows and backend resources to better assist his end users. In addition to this, he learned a great deal about Cisco VoIP, Layer 3 Networking, Desktop and Server deployment, and how to translate &amp;ldquo;Beep-Boop&amp;rdquo; to human-speak.</description>
+    </item>
+    
+  </channel>
+</rss>
