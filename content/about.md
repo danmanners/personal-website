@@ -7,9 +7,11 @@ draft: false
 
 Dan Manners grew up in Westchester, NY. Between 2010 and 2014, he worked for [Production Resource Group](https://www.prg.com/) as a Systems Administrator I/II locally in their New Jersey, New York, and Los Angeles Offices. While there, he focused on learning and understanding how users need to operate and how to optimize workflows and backend resources to better assist his end users. In addition to this, he learned a great deal about Cisco VoIP, Layer 3 Networking, Desktop and Server deployment, and how to translate "**Beep-Boop**" to human-speak. While this may sound silly, this allowed Dan to clearly communicate with many of the higher-level executives and managers.
 
-In mid 2014, he left PRG for [TOURtech](https://www.tourtech.com/). TOURtech offered a new array of challenges, and he went from supporting several smaller office and (roughly) 3,000 global users to temporarily supporting networks for events like music festivals, concert tours, corporate tradeshows, and closed product launches that could handle upwards of _**30,000**_ wired and wireless clients. The networks would be for things like Point-of-Sales systems, Access Control, CCTV, Guest Services, Sponsorship booths, and public and private wifi.
+In mid 2014, he left PRG for [TOURtech](https://www.tourtech.com/). TOURtech offered a new array of challenges, and he went from supporting several smaller office and (roughly) 3,000 global users to temporarily supporting networks for events like music festivals, concert tours, corporate tradeshows, and product launches that could handle upwards of _**30,000**_ wired and wireless clients. The networks would be deployed for services like Point-of-Sales systems, Access Control, CCTV, Guest Services, Sponsorship booths, and public and private wifi.
 
-At the beginning of 2017, Dan began working with [BrainGu](https://braingu.com). While it may be considered a radical shift from both PRG and TOURtech, this was a brand new style of challenge. Most of what he has worked on is either under strict NDA or classified, but what he **CAN** talk about is [Structsure](https://structsure.com). 
+At the beginning of 2017, Dan began working with [BrainGu](https://braingu.com). While it may be considered a radical shift from his experience with PRG and TOURtech, this was a brand new style of challenge. Most of what he has worked on is either under strict NDA or classified, but what he **CAN** talk about is [Structsure](https://structsure.com). During his work on Structsure, he's primarily focused on learning what good and bad DevOps workflows look like.
+
+Throughout his career spanning a decade, Dan has had one constant: "Be good, do others good, and don't be a dick." While a bit forward, it translates well to all facets of life.
 
 
 # Things to know about Dan:
@@ -56,6 +58,9 @@ Homelab_Hardware:
 			Model: "Unifi AP AC In-Wall"
 		MasterBedroom:
 			Model: "Unifi AP AC In-Wall"
+	CCTV:
+		Cameras: 7
+		NVR_Software: "Netowrk Optix NXWitness"
 
 Notes:
 	Favorite_OS: "CentOS Linux 7"

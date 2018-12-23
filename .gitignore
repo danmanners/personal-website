@@ -1,2 +1,7 @@
 # Ignore Filetypes
 *.un~
+**.DS_Store
+
+# Ignore Folders
+
+code/**

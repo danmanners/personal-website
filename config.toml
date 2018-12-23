@@ -12,15 +12,15 @@ pygmentscodefencesguesssyntax = true
 
 [params]
     author = "Dan Manners"
-    info = "DevOps Engineer | Cloud Architect | Solutions Engineer"
+    info = "DevOps Engineer | Cloud Architect | Solutions Designer"
     description = "Hugo On TKS"
     keywords = "developer,personal"
     avatarurl = "images/headshot.jpg"
 
-    favicon_32 = "/img/favicon-32x32.png"
-    favicon_16 = "/img/favicon-16x16.png"
+    favicon_32 = "/images/favicon-32x32.png"
+    favicon_16 = "/images/favicon-16x16.png"
 
-    footercontent = "Call Me, Text Me, If You Want To Beep Me"
+    footercontent = "Located @ Raleigh, NC"
 
     hidecredits = true
     hidecopyright = false
@@ -63,3 +63,7 @@ pygmentscodefencesguesssyntax = true
     weight = 2
     url = "/about/"
 
+[[menu.main]]
+    name = "Resume"
+    weight = 2
+    url = "/resume/"
