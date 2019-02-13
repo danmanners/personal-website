@@ -7,6 +7,6 @@ deploy_prod:
     - echo "Building the website."
     - hugo
     - echo "Deploying the website."
+    - rm -rf /usr/share/nginx/danmanners.com/*
     - mv `pwd`/public/* /usr/share/nginx/danmanners.com/
     - chmod -R +x /usr/share/nginx/danmanners.com
-    - chown -R danmanners /usr/share/nginx/danmanners.com
