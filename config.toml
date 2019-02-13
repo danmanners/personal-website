@@ -64,6 +64,16 @@ pygmentscodefencesguesssyntax = true
     weight = 2
     url = "/about/"
 
+[[menu.main]]
+    name = "Posts"
+    weight = 2
+    url = "/posts/"
+
+[[menu.main]]
+    name = "Resume"
+    weight = 2
+    url = "https://resume.danmanners.com/"
+
 # [[menu.main]]
 #     name = "Resume"
 #     weight = 2

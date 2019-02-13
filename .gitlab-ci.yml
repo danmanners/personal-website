@@ -1,0 +1,14 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script: "hugo"
+
+deploy:
+  stage: deploy
+  script: 
+    - "mv public/* /usr/share/nginx/resume.danmanners.com/"
+    - "chmod -R +x /usr/share/nginx/resume.danmanners.com"
+    - "chown -R danmanners /usr/share/nginx/resume.danmanners.com"

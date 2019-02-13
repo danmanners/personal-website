@@ -9,9 +9,9 @@
     <ul>
       {{ range sort .}}
         {{ if .icon }}
-          <li><a href="{{ .url }}"><i class="{{ .icon }}"></i></a></li>
+          <li><a {{ printf "href=%q" .url | safeHTMLAttr }}><i class="{{ .icon }}"></i></a></li>
         {{ else }}
-          <li><a href="{{ .url }}">{{ .name }}</a></li>
+          <li><a href="{{ .url | }}">{{ .name }}</a></li>
         {{ end }}
       {{ end }}
     </ul>
