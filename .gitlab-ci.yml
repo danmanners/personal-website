@@ -5,7 +5,7 @@ deploy_prod:
   stage: deploy_hugo
   script: 
     - echo "Building the website."
-    - hugo
+    - hugo --cacheDir `pwd`/tmp/
     - echo "Deploying the website."
     - rm -rf /usr/share/nginx/danmanners.com/*
     - mv `pwd`/public/* /usr/share/nginx/danmanners.com/
