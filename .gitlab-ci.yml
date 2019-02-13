@@ -1,14 +1,32 @@
 stages:
-  - build
-  - deploy
+  - deploy_hugo
 
-build:
-  stage: build
-  script: "hugo"
-
-deploy:
-  stage: deploy
+deploy_prod:
+  stage: deploy_hugo
   script: 
-    - "mv public/* /usr/share/nginx/resume.danmanners.com/"
-    - "chmod -R +x /usr/share/nginx/resume.danmanners.com"
-    - "chown -R danmanners /usr/share/nginx/resume.danmanners.com"
+    - echo "Building the website."
+    - hugo
+    - echo "Deploying the website."
+    - mv `pwd`/public/* /usr/share/nginx/danmanners.com/
+    - chmod -R +x /usr/share/nginx/danmanners.com
+    - chown -R danmanners /usr/share/nginx/danmanners.com
+  only:
+    - personal-website
+
+# stages:
+#   - deploy
+  
+# deploy_prod:
+#   stage: deploy
+#   script:
+#      - echo "Deploying to Production Server"
+#      - hostname
+#      - sudo ./runprod.sh
+
+#   environment:
+#     name: Production
+#     url: https://dandbwedding.com
+    
+#   only:
+#     - web_prod
+
