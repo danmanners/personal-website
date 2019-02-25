@@ -7,8 +7,8 @@ googleAnalytics = "UA-131029076-1"
 paginate = 20
 canonifyurls = true
 
-pygmentsstyle = "bw"
 pygmentscodefences = true
+PygmentsStyle = "monokai"
 pygmentscodefencesguesssyntax = true
 
 [params]
