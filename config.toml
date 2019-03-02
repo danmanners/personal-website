@@ -73,8 +73,3 @@ pygmentscodefencesguesssyntax = true
     name = "Resume"
     weight = 2
     url = "https://resume.danmanners.com/"
-
-# [[menu.main]]
-#     name = "Resume"
-#     weight = 2
-#     url = "/resume/"
