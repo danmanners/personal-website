@@ -9,9 +9,11 @@ Dan Manners grew up in Westchester, NY. Between 2010 and 2014, he worked for [Pr
 
 In mid 2014, he left PRG for [TOURtech](https://www.tourtech.com/). TOURtech offered a new array of challenges, and he went from supporting several smaller office and (roughly) 3,000 global users to temporarily supporting networks for events like music festivals, concert tours, corporate tradeshows, and product launches that could handle upwards of _**30,000**_ wired and wireless clients. The networks would be deployed for services like Point-of-Sales systems, Access Control, CCTV, Guest Services, Sponsorship booths, and public and private wifi.
 
-At the beginning of 2017, Dan began working with [BrainGu](https://braingu.com). While it may be considered a radical shift from his experience with PRG and TOURtech, this was a brand new style of challenge. Most of what he has worked on is either under strict NDA or classified, but what he **CAN** talk about is [Structsure](https://structsure.com). During his work on Structsure, he's primarily focused on learning what good and bad DevOps workflows look like.
+At the beginning of 2017, Dan began working with [BrainGu](https://braingu.com). While it may be considered a radical shift from his experience with PRG and TOURtech, this was a brand new style of challenge. Most of what he has worked on is either under strict NDA or classified, but what he **CAN** talk about is [Structsure](https://structsure.com). During his work on Structsure, he primarily focused on learning what good and bad DevOps workflows look like.
 
-Throughout his career spanning a decade, Dan has had one constant: "Be good, do others good, and don't be a dick." While a bit forward, it translates well to all facets of life.
+Finally, in March of 2019, he re-joined TOURtech as the Senior Network Engineer, specializing in systems and design. 
+
+Throughout his career spanning over a decade, Dan has had one constant: "Be good, do others good, and don't be a dick." While a bit forward, it translates well to all facets of life.
 
 
 # Things to know about Dan:
