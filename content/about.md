@@ -19,40 +19,55 @@ Throughout his career spanning over a decade, Dan has had one constant motto: "B
 # Things to know about Dan:
 
 ```yaml
+Personal_Information:
+	Hometown: "Westchester, NY"
+	Pets:
+		Dog:
+			Name:  "Marcel"
+			Age:   "~6"
+			Breed: "Mutt; Lab/Shepard/Rottweiler"
+	Food_Preference:
+		Primary:   "Japanese Cuisine"
+		Secondary: "French Cuisine"
+		Tertiary:  "American Cuisine"
+	Siblings: 2
+	Favorite_Vacation: "Tokyo, Japan"
+---
 Homelab_Hardware:
+	ISP:
+		Spectrum:
+			Status: "Active"
+			Speed:
+				Download: "200 Mbps"
+				Upload:   "10 Mbps"
+		Ting:
+			Status: "Pending"
+			Speed:
+				Download: "1000 Mbps"
+				Upload:   "1000 Mbps"
 	Routing:
 		Mikrotik:
 			Model: "CCR1009-7G-1C-1S+"
 			Ports: 
 				GigE: 8
 				SFP+: 1
-				SFP: 1
+				SFP:  1
 	Switching:
-		Core-Switch:
-			Model: "Edge-Switch ECS2110-26T"
-			Ports: 
-				GigE: 24
-				SFP: 2
-		Upstairs-Expansion:
+		Core_Switch:
 			Model: "Netonix WS-12-250AC"
 			Ports:
 				GigE: 12
-				SFP: 2
-		Downstairs-Main:
+				SFP:  2
+		Upstairs_Expansion:
 			Model: "Ubiquiti EdgeSwitch 8"
 			Ports:
 				GigE: 8
-				SFP: 2
-		Downstairs-Expansion:
-			Model: "Netonix WS-12-250AC"
-			Ports: 
-				GigE: 12
-				SFP: 2
+				SFP:  2
 	Storage:
 		Synology:
-			Model: "DS1815+"
-			Drives: 8
-			Storage: "14TB"
+			Model:    "DS1815+"
+			Drives:   8
+			Storage:  "14TB"
 			Ports:
 				GigE: 4
 	Wireless:
@@ -63,15 +78,8 @@ Homelab_Hardware:
 		MasterBedroom:
 			Model: "Unifi AP AC In-Wall"
 	CCTV:
-		Cameras: 7
-		NVR_Software: "Network Optix NXWitness"
-
-Notes:
-	Favorite_OS: "CentOS Linux 7.4"
-	IDE_Of_Choice: "VSCode"
-	Animal_Preference: "Dogs"
-	Food_Preference: "Japanese Cuisine"
-	Siblings: 2
+		NVR_Software: "DigitalWatchdog IPVMS"
+		Camera_Count: 5
 ```
 
 # Okay, that's all great.
@@ -163,6 +171,9 @@ What technologies, hardware, and software does he have experience with though?
 	</a>
 	<a href="https://meraki.cisco.com/">
 		<img src="images/meraki.png" width="30%" alt="Meraki">
+	</a>
+	<a href="https://mikrotik.com//">
+		<img src="images/mikrotik.svg" width="30%" alt="Meraki">
 	</a>
 	<a href="https://www.ubnt.com/">
 		<img src="images/ubnt.png" width="20%" alt="Ubiquiti">
