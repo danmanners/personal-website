@@ -1,35 +1,35 @@
+# Basic Information
 baseURL = "https://www.danmanners.com/"
 languageCode = "en-us"
 title = "Dan Manners Dot Com"
 theme = "hugo-coder"
 googleAnalytics = "UA-131029076-1"
 
+# Specific Customization
 paginate = 20
 canonifyurls = true
-
 pygmentscodefences = true
 PygmentsStyle = "monokai"
 pygmentscodefencesguesssyntax = true
 
+# After Hugo 0.60, this is necessary to use HTML in markup documents.
+[markup.goldmark.renderer]
+unsafe = true
+
+# Default parameters on the home/about page.
 [params]
     author = "Dan Manners"
-    info = "DevOps Engineer | Cloud Architect | Solutions Designer"
+    info = "Senior Network Engineer | DevOps Engineer | Solutions Designer"
     description = "Hugo On TKS"
     keywords = "developer,personal"
     avatarurl = "images/headshot.jpg"
-
     favicon_32 = "/images/favicon-32x32.png"
     favicon_16 = "/images/favicon-16x16.png"
-
-    footercontent = "Located @ Raleigh, NC"
-
+    footercontent = "Located in Raleigh, NC"
     hidecredits = true
     hidecopyright = false
-
     rtl = false
-
     math = true
-    # custom_css = ["css/custom.css"]
 
 # Social links
 [[params.social]]
@@ -63,12 +63,10 @@ pygmentscodefencesguesssyntax = true
     name = "About"
     weight = 2
     url = "/about/"
-
 [[menu.main]]
     name = "Posts"
     weight = 2
     url = "/posts/"
-
 [[menu.main]]
     name = "Resume"
     weight = 2
