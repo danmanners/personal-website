@@ -11,7 +11,9 @@ In mid 2014, he left PRG for [TOURtech](https://www.tourtech.com/). TOURtech off
 
 At the beginning of 2017, Dan began working with [BrainGu](https://braingu.com). While it may be considered a radical shift from his experience with PRG and TOURtech, this was a brand new style of challenge. Most of what he has worked on is either under strict NDA or classified, but what he **CAN** talk about is [Structsure](https://structsure.com). During his work on Structsure, he primarily focused on learning what good and bad DevOps workflows look like.
 
-Finally, in March of 2019, he re-joined TOURtech as the Senior Network Engineer, specializing in systems and design. Since joining again, he's worked with the TOURtech team on designing and rolling out comprehensive monitoring tools as well as making sure that every TOURtech router ties its management network back to the home office for remote support and management.
+Then in March of 2019, he re-joined TOURtech as the Senior Network Engineer, specializing in systems and design. He worked on designing and rolling out comprehensive monitoring tools, automated tooling to allow rapid configuration and deployment, and made sure that every TOURtech network ties its management back to the home office for remote support and management. During his time with TOURtech the second time around, his big claim-to-fame was designing the network architecture for a cellular carriers 4G to WiFi offload for roughly 11,000 concurrent devices at a major sporting event. Unfortunately a year after joining again mid-COVID-19 crisis, he was laid off.
+
+Only a few days later, he was fortunate enough to be introduced to [TEKsystems](https://www.teksystems.com/) and was hired as a Devops Engineer for [Cisco](https://www.cisco.com/)! More information will be added here as he has it!
 
 Throughout his career spanning over a decade, Dan has had one constant motto: "Be good, do others good, and don't be a dick." While a bit forward, it translates well to all facets of life.
 
