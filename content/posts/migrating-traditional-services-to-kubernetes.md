@@ -37,7 +37,7 @@ Due to the common lack of a "Bus Plan," it is (or appears to be) incredibly dang
 Then you get to "newer" complicated systems:
 
 * Cloud-hosted Infrastructure
-* Declarative vs Imparitive Infrastructure
+* Declarative vs Imperative Infrastructure
 * Docker/Containerized Infrastructure
 * Kubernetes
 > and I'm sure there are tons more examples I cannot think of because I'm tired. I'll come back to this eventually...
