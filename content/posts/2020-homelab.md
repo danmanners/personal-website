@@ -17,7 +17,7 @@ In June of 2020, I decided to build a new homelab. The goals were simple: [open 
 <img src="/static/images/posts/homelab-update-summer-2020/homelab-2018.jpg#center" width="60%">
 </center>
 
-Quick backstory: I sold my last full homelab around September 2019. There were several reason for that decision:
+Quick backstory: I sold my last full homelab around September 2019. There were several reasons for that decision:
 
 1. The cost of power and air conditioning began to outweigh the benefits of running it all, when I was simply not using it anywhere near its potential.
 2. I was running the whole house network through it. Whenever something broke and I was not home, that meant my wife was without internet while running her business from home.
@@ -30,7 +30,7 @@ The combination of those reasons (and more) ultimately pushed me towards selling
 
 There were a few major issues with the original homelab rack that I wanted to fix in version 2:
 
-* It was physically enormous; an 18U 39"-deep rack takes up an extrodinary amount of floorspace.
+* It was physically enormous; an 18U 39"-deep rack takes up an extraordinary amount of floorspace.
 * It generated a lot of heat; the combined 6 servers, storage array, switching, and dedicated router hardware simply used a lot of power and output tons of heat.
 * It was expensive. Granted, I built it over about 3 years, it was between $5k-6k in hardware cost.
 * It was unbelievably complicated. If it all burned down and I wanted to replace it, the time it would take to get everything back up would have been a few weekends worth of free time.
@@ -64,13 +64,13 @@ Storage:
       Alias: "slowboat"
 ```
 
-The reason I'm re-building the homelab anyway is becuase of my new role with Cisco as a DevOps Engineer. With all of the new tooling and logic that I'm working with at Cisco, I felt it was time again to build a homelab that would allow me to better learn and develop on the same or similar tooling as I work on with Cisco.
+The reason I am re-building the homelab anyway is becuase of my new role with Cisco as a DevOps Engineer. With all of the new tooling and logic that I'm working with at Cisco, I felt it was time again to build a homelab that would allow me to better learn and develop on the same or similar tooling as I work on with Cisco.
 
 With that in mind, I have written my entire `homelab-deployment` project with [Puppet Bolt](https://puppet.com/docs/bolt/latest/bolt.html). While many people may have familiarity with Puppet, Bolt is more of an ad-hoc software piece and is effectively Puppets answer to Ansible. While I had built thousands of lines of Ansible in the past, I had not messed around with Puppet too much.
 
 ### Why Puppet Bolt?
 
-Puppet Bolt is what I have been writing much of my Cisco code for, and in order to have a better understanding of it, I figured what better way than to deploy my entire homelab with it? One caveat that I found is that while learning Puppet/Puppet Bolt, much of the documentation is more reference material rather than examples. Because so much Puppet and Bolt code is normally incredibly environment specific, it doesn't appear that many people have released a lot of perfectly functional code as example code. Since I had such a frustrating time picking it up with the speed necessary to my job, I figured I would aim to 100% publicly release my source code for my entire Homelab.
+Puppet Bolt is what I have been writing much of my Cisco code for, and in order to have a better understanding of it, I figured what better way than to deploy my entire homelab with it? One caveat that I found is that while learning Puppet/Puppet Bolt, much of the documentation is more reference material rather than examples. Because so much Puppet and Bolt code is normally incredibly environment specific, it does not appear that many people have released a lot of perfectly functional code as example code. Since I had such a frustrating time picking it up with the speed necessary to my job, I figured I would aim to 100% release my source code for my entire Homelab.
 
 ## What can it do?
 
@@ -134,11 +134,11 @@ I have most of a live document [up on the Github project for homelab-deployment]
 
 ## Configuring Generic Cloud Images
 
-Since there didn't appear to be anything like it, and I figured it'd be a good learning experience, I [built a puppet module to control Proxmox](https://github.com/danmanners/proxmox_api). While this is still very much a work-in-progress, it allows two major functions to be automated that can otherwise be pretty annoying:
+Since there did not appear to be anything like it, and I figured it would be a good learning experience, I [built a puppet module to control Proxmox](https://github.com/danmanners/proxmox_api). While this is still very much a work-in-progress, it allows two major functions to be automated that can otherwise be annoying:
 
 1. Simply creates VM Templates based on Generic Cloud Images (tested with Ubuntu and CentOS)
 2. Simply clone template VM's and assign the correct values for hardware specifications and network settings using Cloud-Init.
 
 ## What now?
 
-There's still a lot to do, and I'm sure that good chunks of the above can be automated. The goals of this project are really to better understand and learn Puppet Bolt while also providing the community a better place to start learning.
+There is still a lot to do, and I am sure that good chunks of the above can be automated. The goals of this project are really to better understand and learn Puppet Bolt while also providing the community a better place to start learning.
