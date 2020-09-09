@@ -17,8 +17,13 @@ Only a few days later, he was fortunate enough to be introduced to [TEKsystems](
 
 Throughout his career spanning over a decade, Dan has had one constant motto: "Be good, do others good, and don't be a dick." While a bit forward, it translates well to all facets of life.
 
+## What's Dan been working on? 
 
-# Things to know about Dan:
+Recently, Dan's been working on automating infrastructure deployment with Puppet Bolt. In environments where Puppet is already in full swing, building plans with Puppet Bolt over Ansible allows re-use of existing code and logic. Additionally, he's been deploying and utilizing Jenkins, SonarQube, Artifactory, and the Atlassian toolset in zero-trust environments while load balancing it all with HAProxy.
+
+In his personal time, he's been building out tooling to deploy baremetal Kubernetes with minimal effort.
+
+## Things to know about Dan:
 
 ```yaml
 Personal_Information:
@@ -86,7 +91,7 @@ Homelab_Hardware:
 		Camera_Count: 5
 ```
 
-# Okay, that's all great.
+## Okay, that's all great.
 What technologies, hardware, and software does he have experience with though?
 
 
