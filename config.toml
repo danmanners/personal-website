@@ -20,7 +20,7 @@ unsafe = true
 [params]
     author = "Dan Manners"
     info = "Senior Network Engineer | DevOps Engineer | Solutions Designer"
-    description = "Hugo On TKS"
+    description = "Built by Hugo"
     keywords = "developer,personal"
     avatarurl = "images/headshot.jpg"
     favicon_32 = "/images/favicon-32x32.png"

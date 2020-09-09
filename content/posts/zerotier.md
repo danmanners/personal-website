@@ -1,5 +1,5 @@
 +++ 
-draft = true
+draft = false
 date = 2020-09-07T21:57:03-04:00
 title = "ZeroTier makes Homelab VPN Easy"
 +++
