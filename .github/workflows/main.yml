@@ -22,7 +22,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       # Go ahead and build the Hugo code into the directory
-      - uses: jakejarvis/hugo-build-action@master  # ...or replace 'master' with a full version tag, such as: v0.64.1
+      - uses: jakejarvis/hugo-build-action@master
         with:
           args: --minify --buildDrafts
 
@@ -42,6 +42,7 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
+          file: ./dockerfile
           push: true
           no-cache: true
           tags: |
