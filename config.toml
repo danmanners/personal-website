@@ -1,5 +1,5 @@
 # Basic Information
-baseURL = "https://www.danmanners.com/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Dan Manners Dot Com"
 theme = "hugo-coder"
