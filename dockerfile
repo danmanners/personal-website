@@ -1,5 +1,5 @@
-FROM nginx:1.15-alpine
-MAINTAINER danmanners (daniel.a.manners@gmail.com)
+FROM nginx:1.19.3-alpine
+LABEL MAINTAINER="Dan Manners (daniel.a.manners@gmail.com)"
 
 ADD public /usr/share/nginx/html
 
