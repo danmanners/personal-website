@@ -24,7 +24,7 @@ jobs:
       # Go ahead and build the Hugo code into the directory
       - uses: jakejarvis/hugo-build-action@master
         with:
-          args: --minify --buildDrafts
+          args: --minify
 
       # Makes sure to log into Dockerhub
       - name: Login to DockerHub
