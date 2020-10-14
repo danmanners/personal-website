@@ -7,28 +7,6 @@ tags = ['kubernetes','k3s','zerotier','digitalocean','homelab','gitops','GitHub'
 categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean']
 +++
 
-## Building the Pi Cluster
-
-### Prepping the Pi's with HypriotOS
-
------
-
-## Spinning up the Digital Ocean Droplet
-
------
-
-## ZeroTier
-
-### Creating the ZeroTier Network
-
-### Associating the DO Node
-
-### Creating a ZeroTier 'Router' in the Homelab
-
-### Validating Network Connectivity between local Pi's and the DO Node
-
------
-
 ## Deploying K3s
 
 ### Deploying the K3s Main Node
@@ -45,10 +23,6 @@ categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean']
 
 -----
 
-## Creating up your K3s GitHub Infrastructure Repo
-
------
-
 ## Upgrading and Updating Traefik on K3s
 
 ### Using Lens to Update Traefik
@@ -56,6 +30,10 @@ categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean']
 ### Creating a DigitalOcean API Token
 
 ### Updating the Traefik Deployment
+
+-----
+
+## Creating up your K3s GitHub Infrastructure Repo
 
 -----
 

@@ -108,3 +108,7 @@ In part 2, I'll be covering:
 * [K3s Homelab Repo for Flux](https://github.com/danmanners/homelab-k3s-cluster)
 * [Personal Website Repo (with GitHub Actions)](https://github.com/danmanners/personal-website)
 * [Docker Hub Account hosting container image](https://hub.docker.com/u/danielmanners)
+
+# Questions? Thoughts?
+
+Feel free to ping me at [daniel.a.manners@gmail.com](mailto:daniel.a.manners@gmail.com"). If something I wrote isn't clear, feel free to ask me a question or tell me to update it!
