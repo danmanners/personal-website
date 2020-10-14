@@ -196,4 +196,4 @@ In part 3, I'll be covering:
 
 # Questions? Thoughts?
 
-Feel free to ping me at [daniel.a.manners@gmail.com](mailto:daniel.a.manners@gmail.com"). If something I wrote isn't clear, feel free to ask me a question or tell me to update it!
+Feel free to ping me at [daniel.a.manners@gmail.com](mailto:daniel.a.manners@gmail.com). If something I wrote isn't clear, feel free to ask me a question or tell me to update it!

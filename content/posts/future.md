@@ -7,31 +7,6 @@ tags = ['kubernetes','k3s','zerotier','digitalocean','homelab','gitops','GitHub'
 categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean']
 +++
 
-## Deploying K3s
-
-### Deploying the K3s Main Node
-
-### Deploying the K3s Pi Worker Nodes
-
-### Deploying the K3s DO Worker Node
-
------
-
-## Prepping Docker Hub
-
-### Generating API Tokens
-
------
-
-## Upgrading and Updating Traefik on K3s
-
-### Using Lens to Update Traefik
-
-### Creating a DigitalOcean API Token
-
-### Updating the Traefik Deployment
-
------
 
 ## Creating up your K3s GitHub Infrastructure Repo
 
