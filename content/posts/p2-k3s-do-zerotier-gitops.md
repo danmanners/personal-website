@@ -13,6 +13,15 @@ In part 2 of getting everything up and going, we'll be covering Turing Pi prep w
 <img src="/static/images/posts/k3s-do-zerotier-gitops/TuringPi.jpg" style="border-radius: 25px; width:60%; height:60%">
 </center>
 
+## Local Hardware Requirements
+
+- Router for your Lab/Home which can have static routes set
+- Laptop/Desktop running Mac/Windows/Linux to program your Pi's with
+- 1 System to act as the Zerotier router
+- 1 Turing Pi
+- 1 Micro USB to USB Type A (or Type C, if you're system has it)
+- 2+ Systems to act as k3s nodes
+
 ## Assumptions
 
 For the purpose of this guide, I'm going to assume the following things:
@@ -137,7 +146,8 @@ sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}'
 # eth0        <== This is our physical ethernet
 # ztyou2j6dw  <==This is our Zerotier Virtual Adapter
-PHY_IFACE=eth0; ZT_IFACE=ztyou2j6dw # <== The adapter names; make sure these match YOUR adapters!!
+PHY_IFACE="eth0"
+ZT_IFACE="$(ip l | grep 'zt' | awk '{print substr($2,1,length($2)-1)}')" # <== This command will grab your ZeroTier interface name
 sudo iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 sudo iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
@@ -145,6 +155,9 @@ sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
 # Make sure the rules are persistent after reboot/poweroff
 sudo apt install iptables-persistent
 sudo bash -c iptables-save > /etc/iptables/rules.v4
+
+# Ensure that Zerotier always comes back up after a reboot
+sudo systemctl enable zerotier-one
 ```
 
 Once that's all complete, navigate back to the network page in Zerotier. Once again, scroll down to **Members** and you should see a new client. This is the 'Zerotier Router' we're building now! Click the checkbox under **Auth?** and set a human-readable name.
@@ -179,8 +192,6 @@ In part 3, I'll be covering:
   - Deploying the K3s Main Node
   - Deploying the K3s Pi Worker Nodes
   - Deploying the K3s DO Worker Node
-- Prepping Docker Hub
-  - Generating API Tokens
 - Upgrading and Updating Traefik on K3s
   - Using Lens to Update Traefik
   - Creating a Digital Ocean API Token
