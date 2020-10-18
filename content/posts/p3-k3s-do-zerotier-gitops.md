@@ -62,12 +62,12 @@ for i in 10.45.0.{41..44}; do ssh pirate@$i -t "sudo sysctl net.ipv4.ip_forward=
   && sudo sysctl net.ipv6.conf.all.forwarding=1 \
   && sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf \
   && sudo sed -i 's/#net.ipv6.conf.all.forwarding=1/net.ipv6.conf.all.forwarding=1/g' /etc/sysctl.conf \
-  && sudo wget https://github.com/rancher/k3s/releases/download/v1.18.9%2Bk3s1/k3s-arm64 -O /usr/local/bin/k3s \
+  && sudo wget https://github.com/rancher/k3s/releases/download/v1.18.9%2Bk3s1/k3s-armhf -O /usr/local/bin/k3s \
   && sudo chmod a+x /usr/local/bin/k3s \
   && sudo reboot"; done
 ```
 
-For your `amd64` Digital Ocean droplet, you can simply strip the `-arm64` off the end of the `wget` URL above and run the same code.
+For your `amd64` Digital Ocean droplet, you can simply strip the `-armhf` off the end of the `wget` URL above and run the same code.
 
 Just trying to keep it easy 😉
 
@@ -76,9 +76,12 @@ Just trying to keep it easy 😉
 Start out by SSHing to the node you intend to be the master. We're going to run the following commands:
 
 ```bash
+# Escalate to root
+sudo su
+
 # k3s.service file taken from here:
 # https://github.com/geerlingguy/k3s-ansible/blob/master/roles/k3s/master/templates/k3s.service.j2
-sudo cat << EOT >> /etc/systemd/system/k3s.service
+cat << EOT > /etc/systemd/system/k3s.service
 [Unit]
 Description=Lightweight Kubernetes
 Documentation=https://k3s.io
@@ -105,12 +108,15 @@ RestartSec=5s
 WantedBy=multi-user.target
 EOT
 # Ensure the systemd file has the correct permissions
-sudo chmod 0644 /etc/systemd/system/k3s.service
+chmod 0644 /etc/systemd/system/k3s.service
 
 # Make sure we reload the systemctl daemon, then enable and start it.
-sudo systemctl daemon-reload
-sudo systemctl enable k3s
-sudo systemctl start k3s
+systemctl daemon-reload
+systemctl enable k3s
+systemctl start k3s
+
+# Drop out of root
+exit
 
 # Run the next command until it finishes successfully. This may take up to 30 seconds.
 stat /var/lib/rancher/k3s/server
@@ -121,8 +127,8 @@ sudo cp /etc/rancher/k3s/k3s.yaml /home/pirate/.kube/config
 sudo chown pirate:pirate /home/pirate/.kube/config
 
 # Change the server from localhost (127.0.0.1) to the IP address of the eth0 interface
-k3s kubectl config set-cluster default
-      --server=https://$(ip a show eth0 | grep -Po 'inet \K[\d.]+'):6443
+sudo k3s kubectl config set-cluster default \
+      --server=https://$(ip a show eth0 | grep -Po 'inet \K[\d.]+'):6443 \
       --kubeconfig /home/pirate/.kube/config
 
 # Output the authentication token for our worker nodes; we'll need this later
@@ -138,13 +144,16 @@ Make sure that you make a note of the token above, we'll need it in just a momen
 Joining the nodes is much easier. You'll need to set two variables below, and everything else should be nearly seamless.
 
 ```bash
+# Escalate to root
+sudo su
+
 # You MUST make sure to set the variables below before continuing
 AUTHTOKEN="AuthTokenFromAbove"
 MASTER_IP="Your.Master.Node.IP"
 
 # k3s-node.service file taken from here:
 # https://github.com/geerlingguy/k3s-ansible/blob/master/roles/k3s/node/templates/k3s.service.j2
-sudo cat << EOT >> /etc/systemd/system/k3s-node.service
+cat << EOT > /etc/systemd/system/k3s-node.service
 [Unit]
 Description=Lightweight Kubernetes
 Documentation=https://k3s.io
@@ -172,9 +181,12 @@ WantedBy=multi-user.target
 EOT
 
 # Make sure we reload the systemctl daemon, then enable and start it.
-sudo systemctl daemon-reload
-sudo systemctl enable k3s-node
-sudo systemctl start k3s-node
+systemctl daemon-reload
+systemctl enable k3s-node
+systemctl start k3s-node
+
+# Drop out of root
+exit
 ```
 
 At this point, all of your Raspberry Pi K3s nodes should be up and operational! I recommend confirming this by using Lens or K9s on your local system.
@@ -184,6 +196,9 @@ At this point, all of your Raspberry Pi K3s nodes should be up and operational! 
 For the Digital Ocean worker node, it's almost exactly like joining the Pi nodes. However, since we need this one to dial home over the Zerotier network, we've made a couple additions below. Specifically, we must specify the `flannel-iface` argument in the service file with the Zerotier interface name.
 
 ```bash
+# Escalate to root
+sudo su
+
 # You MUST make sure to set the variables below before continuing
 AUTHTOKEN="AuthTokenFromAbove"
 MASTER_IP="Your.Master.Node.IP"
@@ -193,7 +208,7 @@ MASTER_IP="Your.Master.Node.IP"
 FLANNEL_IFACE="$(ip l | grep 'zt' | awk '{print substr($2,1,length($2)-1)}')"
 # k3s-node.service file taken from here:
 # https://github.com/geerlingguy/k3s-ansible/blob/master/roles/k3s/node/templates/k3s.service.j2
-sudo cat << EOT >> /etc/systemd/system/k3s-node.service
+cat << EOT >> /etc/systemd/system/k3s-node.service
 [Unit]
 Description=Lightweight Kubernetes
 Documentation=https://k3s.io
@@ -221,9 +236,12 @@ WantedBy=multi-user.target
 EOT
 
 # Make sure we reload the systemctl daemon, then enable and start it.
-sudo systemctl daemon-reload
-sudo systemctl enable k3s-node
-sudo systemctl start k3s-node
+systemctl daemon-reload
+systemctl enable k3s-node
+systemctl start k3s-node
+
+# Drop out of root
+exit
 ```
 
 At this point, all of your Kubernetes nodes should be up and operational! Again, you should verify this using Lens, K9s, or by simply running `kubectl get nodes` on your local system.
