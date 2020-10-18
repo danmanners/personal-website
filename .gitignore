@@ -1,9 +1,10 @@
 # Ignore Filetypes
 public.zip
 *.un~
-**.DS_Store
+*.DS_Store
 
 # Ignore Folders
-public/**
-code/**
+public
 .vscode
+code/**
+data
