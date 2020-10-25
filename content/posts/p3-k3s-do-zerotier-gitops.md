@@ -247,13 +247,12 @@ exit
 At this point, all of your Kubernetes nodes should be up and operational! Again, you should verify this using Lens, K9s, or by simply running `kubectl get nodes` on your local system.
 
 ```bash
-➜  personal-website git:(p3-k3s-do-zt-go) ✗ kubectl get nodes -owide
-NAME         STATUS   ROLES    AGE   VERSION        INTERNAL-IP     EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION       CONTAINER-RUNTIME
-k3s-master   Ready    master   24d   v1.18.9+k3s1   10.45.0.41      <none>        Raspbian GNU/Linux 10 (buster)   5.4.51-v7+           containerd://1.3.3-k3s2
-k3s-node1    Ready    <none>   24d   v1.18.9+k3s1   10.45.0.42      <none>        Raspbian GNU/Linux 10 (buster)   5.4.51-v7+           containerd://1.3.3-k3s2
-k3s-do-1     Ready    <none>   12d   v1.18.9+k3s1   172.22.108.69   <none>        Ubuntu 18.04.5 LTS               4.15.0-118-generic   containerd://1.3.3-k3s2
-k3s-node3    Ready    <none>   24d   v1.18.9+k3s1   10.45.0.44      <none>        Raspbian GNU/Linux 10 (buster)   5.4.51-v7+           containerd://1.3.3-k3s2
-k3s-node2    Ready    <none>   24d   v1.18.9+k3s1   10.45.0.43      <none>        Raspbian GNU/Linux 10 (buster)   5.4.51-v7+           containerd://1.3.3-k3s2
+➜  kubectl get nodes -o wide
+NAME            STATUS   ROLES    AGE   VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
+k3s-dev-main1   Ready    master   28m   v1.18.9+k3s1   10.45.0.45    <none>        Raspbian GNU/Linux 10 (buster)   5.4.51-v7+          containerd://1.3.3-k3s2
+k3s-dev-work1   Ready    <none>   27m   v1.18.9+k3s1   10.45.0.46    <none>        Raspbian GNU/Linux 10 (buster)   5.4.51-v7+          containerd://1.3.3-k3s2
+k3s-dev-work2   Ready    <none>   26m   v1.18.9+k3s1   10.45.0.47    <none>        Raspbian GNU/Linux 10 (buster)   5.4.51-v7+          containerd://1.3.3-k3s2
+k3s-do-1        Ready    <none>   12m   v1.18.9+k3s1   172.22.108.69 <none>        Ubuntu 18.04.5 LTS               4.15.0-118-generic  containerd://1.3.3-k3s2
 ```
 
 -----
@@ -309,6 +308,8 @@ Open Lens and make sure you can connect to your K3s Cluster.
 
 Navigate to **Apps > Releases** on the left hand side. Then click on **traefik**.
 
+Click Upgrade in the top right of Lens and wait about 90 seconds before continuing. This ensures you'll be on the latest version before continuing.
+
 <center><img src="/static/images/posts/k3s-do-zerotier-gitops/lens-2.png"></center>
 
 Here you will be able to update the Helm chart for traefik on your k3s cluster. You will need to make the following changes:
@@ -360,6 +361,53 @@ spec:
 Once that's all complete, you should be able to see Traefik replace the pod with the newly edited deployment.
 
 Congratulations! You've successfully deployed K3s on both Raspberry Pi (`arm`) as well as Digital Ocean Droplets (`amd64`), and we're ready to get a GitOps workflow and some applications up and going!
+
+-----
+
+## OPTIONAL - Install Lens Metrics
+
+If you want to install Lens prometheus metrics, they won't work out of the box. We can however make a couple quick modifications without major issue.
+
+Right Click on your cluster on the left-hand side, go to **Settings**. Scroll down and click **Install** under "**Metrics**."
+
+After about 10-15 seconds, you'll be able to navigate to **Workloads > Deployments** for the new cluster. We'll need to make two changes to the `kube-state-metrics` deployment YAML:
+
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+        - name: kube-state-metrics
+          image: 'carlosedp/kube-state-metrics:v1.9.5' # IMPORTANT CHANGE
+#         image: 'quay.io/coreos/kube-state-metrics:v1.9.5' # OLD 
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/os
+                    operator: In
+                    values:
+                      - linux
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - amd64
+              - matchExpressions:
+                  - key: beta.kubernetes.io/os
+                    operator: In
+                    values:
+                      - linux
+# We're removing this:
+#                 - key: beta.kubernetes.io/arch
+#                   operator: In
+#                   values:
+#                     - amd64
+```
+
+If you make those two changes, your cluster should update and pull the new image which is compatible with `arm` processors.
+
+I'm hoping to better understand this and build a multi-arch image.
 
 -----
 
