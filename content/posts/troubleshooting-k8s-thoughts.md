@@ -2,14 +2,15 @@
 draft = false
 date = 2021-01-01T22:50:00-05:00
 title = "K8s Troubleshooting After Docker Hub Changes"
-slug = "" 
+slug = "k8s-troubleshooting-dns-and-also-docker-hub-sucks" 
 tags = ['k8s','docker','kubernetes','homelab','docker_hub','troubleshooting']
 categories = ['Kubernetes','Homelab','Docker']
 +++
 
 I'm not quite sure where to start with this one, so I'll just come out and say it: if you ever have had to shut down and turn your Kubernetes cluster back on, and you have services with persistent storage, _and_ if you find out that your credentials for at least one service have expired, you'll know how absolutely horrible it can be to get everything back up and running.
 
-![Lots of Lens Errors](/static/images/posts/troubleshooting/lens-oh-no.png)
+![Lots of Lens Errors](/static/images/posts/troubleshooting-k8s/lens-oh-no.png)
+
 
 ## What the hell is happening right now
 
@@ -88,7 +89,7 @@ $ for i in dev-k8s-node{1..9}; do ssh ubuntu@$i -t 'sudo systemctl disable syste
 
 Great, now it should all resolve in just a few moments--
 
-![Lots of Lens Errors](/static/images/posts/troubleshooting/lens-more-errors.png)
+![Lots of Lens Errors](/static/images/posts/troubleshooting-k8s/lens-more-errors.png)
 
 Well shit. That's the Docker Hub limitation.
 
