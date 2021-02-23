@@ -4,7 +4,7 @@ date = 2021-02-20T16:30:00-05:00
 title = "Homelab Updates - Winter 2021"
 slug = "homelab-update-winter-2021" 
 tags = ['turingpi','homelab','qnap','virtualization','mikrotik','poe','san','ubiquiti','ubnt']
-categories = ['Homelab']
+categories = ['Homelab','TuringPi']
 +++
 
 # Homelab Updates - Winter 2021

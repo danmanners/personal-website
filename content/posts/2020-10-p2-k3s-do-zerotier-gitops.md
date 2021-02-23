@@ -4,7 +4,7 @@ date = 2020-10-13T19:18:00-04:00
 draft = false
 slug = "p2-k3s-digitalocean-zerotier-and-more"
 tags = ['zerotier','digitalocean','homelab','letsencrypt','turingpi','raspberrypi']
-categories = ['Networking','Zerotier','DigitalOcean','Router']
+categories = ['Networking','Zerotier','DigitalOcean','Router','TuringPi']
 +++
 
 In part 2 of getting everything up and going, we'll be covering Turing Pi prep with multiple nodes, creating a Droplet in Digital Ocean, creating your Zerotier network, joining your DO droplet to the Zerotier network as a client, and the requirements and setup for a system in your homelab acting as a router for Zerotier.

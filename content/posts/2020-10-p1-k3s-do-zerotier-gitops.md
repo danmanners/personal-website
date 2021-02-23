@@ -4,7 +4,7 @@ date = 2020-10-11T10:56:31-04:00
 draft = false
 slug = "k3s-digitalocean-zerotier-and-more"
 tags = ['kubernetes','k3s','zerotier','digitalocean','homelab','gitops','GitHub','GitHub_actions','letsencrypt','turingpi']
-categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean']
+categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean','TuringPi']
 +++
 
 For a while, I've wanted to figure out some ways to bridge the gap with homelabbing and professional cloud environments. Generally it's expensive, complicated, or both to get it all working. What I'm hoping to help folks understand is that you can do it well, cheap, and keep it all maintained and up to date with modern practices like GitOps.

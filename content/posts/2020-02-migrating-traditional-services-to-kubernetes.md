@@ -3,8 +3,8 @@ title = "Why Kubernetes is a Hard Sell for Small Businesses"
 date = 2020-02-20T21:14:14-04:00
 draft = false
 slug = "kubernetes-in-small-businesses"
-tags = ['kubernetes']
-categories = ['Networking','Kubernetes']
+tags = ['kubernetes','small-business','docker']
+categories = ['Networking','Kubernetes','docker']
 +++
 
 While the title specifically says Kubernetes, you could replace it with `Service X`. The reason I'm going with Kubernetes here is because of a number of recent conversations I've had with people that made me feel like I should write _something_ about this.

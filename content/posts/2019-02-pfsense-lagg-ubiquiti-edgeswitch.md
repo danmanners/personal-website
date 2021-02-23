@@ -1,8 +1,10 @@
----
-title: "pfSense Lagg Ubiquiti Edgeswitch"
-date: 2019-02-10T22:55:30-05:00
-draft: false
----
++++
+draft = false
+date = 2019-02-10T22:55:30-05:00
+title = "pfSense Lagg Ubiquiti Edgeswitch"
+tags = ['pfsense','lagg','ubiquiti','ubnt','edgeswitch']
+categories = ['pfSense','Ubiquiti','networking','switching']
++++
 
 # pfSense LAGG and the Ubiquiti EdgeSwitch
 

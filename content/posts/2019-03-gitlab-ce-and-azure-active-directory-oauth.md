@@ -3,8 +3,8 @@ draft = false
 date = 2019-03-02T16:20:30-05:00
 title = "Gitlab-CE, Azure Active Directory, and OAuth2"
 slug = "" 
-tags = ['gitlab-ce','Azure']
-categories = ['Applications','OAuth','Azure']
+tags = ['gitlab-ce','Azure','gitlab','oauth','git']
+categories = ['Applications','OAuth','Azure','Gitlab']
 +++
 
 # Configuring Gitlab for Azure Directory OAuth

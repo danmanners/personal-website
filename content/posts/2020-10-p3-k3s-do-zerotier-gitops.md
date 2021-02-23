@@ -4,7 +4,7 @@ date = 2020-10-17T10:45:00-04:00
 draft = false
 slug = "p3-k3s-digitalocean-zerotier-and-more"
 tags = ['zerotier','digitalocean','homelab','letsencrypt','turingpi','raspberrypi']
-categories = ['Networking','Zerotier','DigitalOcean','Router']
+categories = ['Networking','Zerotier','DigitalOcean','Router','TuringPi']
 +++
 
 In part 3 of getting things up and going, we'll be covering how to get K3s installed on all of your nodes, getting Docker Hub set up, upgrading and configuring Traefik on K3s using Lens, and Associating a firewall with your Digital Ocean droplet.
