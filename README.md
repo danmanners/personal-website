@@ -17,7 +17,7 @@ If you want to run the build for multiple CPU architectures, you can use [Docker
 
 ```shell
 docker buildx build --no-cache \
-    --platform linux/amd64,linux/arm64,linux/arm/v7 \
+    --platform linux/amd64,linux/arm64 \
     -t danielmanners/danmanners-dot-com:$(git rev-parse --short HEAD) \
     --push .
 ```
