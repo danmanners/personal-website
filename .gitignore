@@ -4,7 +4,7 @@ public.zip
 *.DS_Store
 
 # Ignore Folders
-public
+public/
 .vscode
 code/**
 data

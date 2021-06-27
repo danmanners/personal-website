@@ -8,6 +8,7 @@ categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean']
 +++
 
 ## Generating a Docker Hub API key
+
 ### Generating API Tokens
 
 ## Creating up your K3s GitHub Infrastructure Repo
@@ -22,8 +23,8 @@ categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean']
 
 -----
 
-## Deploying FluxCD
+## Deploying ArgoCD
 
-### Adding Flux Deploy Keys to your K3s GitHub Repo
+### Setting up ArgoCD and GitOps for your cluster
 
 -----
