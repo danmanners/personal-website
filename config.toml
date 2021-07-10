@@ -19,7 +19,7 @@ unsafe = true
 # Default parameters on the home/about page.
 [params]
     author = "Dan Manners"
-    info = "Senior Network Engineer | DevOps Engineer | Solutions Designer"
+    info = "Senior Site Reliability, DevOps, and Network Engineer"
     description = "Built by Hugo"
     keywords = "developer,personal"
     avatarurl = "images/headshot.jpg"
