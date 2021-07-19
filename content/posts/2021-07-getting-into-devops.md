@@ -135,7 +135,7 @@ If you want to read more, you can check out an earlier post of mine covering [th
 If you don't have a Digital Ocean account already, [consider signing up with my referral link here](https://m.do.co/c/a286136cde19). It's a free $100 in credit your first 60 days, and once you've spent $25, I get $25 in credit. Little things like this help me pay for my Digital Ocean hosting costs at no additional cost to you. I'm not sponsored by them or anything, I just really appreciate them as an organization. Thank you so much!
 
 <center>
-  <a href="https://www.digitalocean.com/?refcode=a286136cde19&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" />
+  <a href="https://www.digitalocean.com/?refcode=a286136cde19&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge"></a>
 </center>
 
 ## Questions? Thoughts?
