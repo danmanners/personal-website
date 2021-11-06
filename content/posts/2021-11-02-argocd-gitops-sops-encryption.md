@@ -1,7 +1,7 @@
 +++ 
 draft = true
 date = 2021-11-01T21:58:49-04:00
-title = "ArgoCD & SOPS"
+title = "ArgoCD, SOPS"
 slug = "2021-11-argocd-gitops-sops-encryption" 
 tags = ['gitops','kube','kubernetes','cloud']
 categories = ['Kubernetes','GitOps','Encryption']

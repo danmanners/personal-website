@@ -7,11 +7,11 @@ tags = ['networking','k3s','cloud','google-cloud','zerotier','terraform']
 categories = ['Kubernetes','Cloud','Zerotier','Terraform']
 +++
 
-For a while now, I've wanted to figure out _something_ to do with multi-cloud networking and compute. Single cloud is pretty easy these days; if there's something you want to do, and it's single cloud, there's probably at least a handful of blog posts about it. Multi cloud is still a bit more esoteric.
+For a while now, I've wanted to figure out _something_ to do with multi-cloud networking and compute. Single cloud is pretty easy these days; if there's something you want to do, and it's single cloud, there's probably at least a handful of blog posts about it. Multi cloud is still a bit more esoteric and 'weird' at small scale.
 
 ## An Idea Appears - A High Level Overview
 
-Since I've finally had [Ting Fiber](https://ting.com/internet) installed at my house, and Spectrum managed to offer me a $25/month discount from what I had been paying to keep it for one more year, I decided it was time to move my website back to my house. However, I wanted to be smarter about it. I didn't want to expose **any** ports for my home to the open web, and I wanted to implement redundancy and resiliency more than one way.
+Since I finally have [Ting Fiber](https://ting.com/internet) installed at my house, and Spectrum managed to offer me a $25/month discount from what I had been paying to keep it for one more year, I decided it was time to move my website back to my house. However, I wanted to be smarter about it. I didn't want to expose **any** ports for my home to the open web, and I wanted to implement redundancy and resiliency more than one way.
 
 Well, I've already built a proof-of-concept in the past using K3s in Digital Ocean, using the Public IP there to serve my website. That worked pretty well, but there were a lot of manual steps to get everything up and running. I was hoping that I could get nearly everything automated and repeatable, allowing other folks to use the same logic for their own systems.
 
