@@ -7,11 +7,17 @@ tags = ['traefik','networking','kubernetes','k3s','homelab']
 categories = ['Kubernetes','Networking','cloud','Proxy','ZeroTier']
 +++
 
-For a while now, I've been using my hybrid-cloud K3s nodes to reverse proxy into a few services that are **not** running in my Kubernetes cluster. Originally, I planned on proxying the traffic I wanted in NGINX at the edge, but then it would be nearly impossible to pass through to Traefik without a lot of manual work and effort. I ended up doing it in a reasonably hacky way ([See Here](https://github.com/danmanners/homelab-k3s-cluster/blob/9a2f70002ff4b11b5f4ac046851cd15367361344/manifests/workloads/traefik-reverseproxy/reverse-proxy.yaml), [here](https://github.com/danmanners/homelab-k3s-cluster/blob/9a2f70002ff4b11b5f4ac046851cd15367361344/manifests/workloads/traefik-reverseproxy/traefik-mods.yaml#L62), [and here](https://github.com/danmanners/homelab-k3s-cluster/blob/9a2f70002ff4b11b5f4ac046851cd15367361344/manifests/workloads/traefik-reverseproxy/wikijs.yaml#L40)), but decided against that from a maintenance standpoint. Everything I needed to learn to get it working I found on a blog post from [Eleven Labs](https://blog.eleven-labs.com/en/using-traefik-as-a-reverse-proxy/), and then further adapted it into Kubernetes.
+For a while now, I've been using my hybrid-cloud K3s nodes to reverse proxy into a few services that are **not** running in my Kubernetes cluster. Originally, I planned on proxying the traffic I wanted in NGINX at the edge, but then it would be nearly impossible to pass through to Traefik without a lot of manual work and effort. I ended up doing it in a reasonably hacky way, but ultimately decided to move away from that approach due to maintenance and re-deployability concerns. Everything I needed to learn to get it working was found on a blog post from [Eleven Labs](https://blog.eleven-labs.com/en/using-traefik-as-a-reverse-proxy/), and I extended that information to get it working on Trafik running on Kubernetes. Functional, but definitely hacky.
 
 Over the 2021-2022 holidays, I stumbled into a [very interesting StackOverflow post](https://stackoverflow.com/questions/57764237/kubernetes-ingress-to-external-service/57769127#57769127). TL;DR: They recommended creating an [Endpoint Object](https://kubernetes.io/docs/concepts/services-networking/service/) and just pointing the addresses to an external IP.
 
-Well...that's kind of a neat idea. Let's see if we can't get it working!
+Well...that's kind of a neat idea. Let's see if we can get that approach working! First, let's look over how the network traffic should be flowing.
+
+## Network flow
+
+From the public internet, this is _effectively_ how traffic makes it way from the user over the public internet to the service running on a VM host in my homelab.
+
+![WikiJS Screenshot](/static/images/posts/2022-01-kubernetes-endpoint-objects/networkflow.png)
 
 ## Migrating over wiki.danmanners.com
 
@@ -31,6 +37,8 @@ Okay, so if I wanted to update things from A to B, it should probably look somet
             [[http.services.wikijs.loadBalancer.servers]]
                 url = "http://10.45.0.32:80/"
 ```
+
+> The original code to reference can be [found here](https://github.com/danmanners/homelab-k3s-cluster/blob/9a2f70002ff4b11b5f4ac046851cd15367361344/manifests/workloads/traefik-reverseproxy/reverse-proxy.yaml), [here](https://github.com/danmanners/homelab-k3s-cluster/blob/9a2f70002ff4b11b5f4ac046851cd15367361344/manifests/workloads/traefik-reverseproxy/traefik-mods.yaml#L62), [and here](https://github.com/danmanners/homelab-k3s-cluster/blob/9a2f70002ff4b11b5f4ac046851cd15367361344/manifests/workloads/traefik-reverseproxy/wikijs.yaml#L40).
 
 ### New Code
 
@@ -79,7 +87,7 @@ spec:
         scheme: http
 ```
 
-> [The Traefik code can be viewed here](https://github.com/danmanners/homelab-k3s-cluster/blob/main/manifests/workloads/traefik-helm/wikijs.yaml)
+> [The full code for my homelab with Traefik can be viewed here](https://github.com/danmanners/homelab-k3s-cluster/blob/main/manifests/workloads/traefik-helm/wikijs.yaml)
 
 ## Does it work?
 
@@ -87,7 +95,7 @@ Short answer: Yes!
 
 ![WikiJS Screenshot](/static/images/posts/2022-01-kubernetes-endpoint-objects/wikijs.png)
 
-Longer answer: It definitely works, and latency from my house, over the internet, and back seems to be pretty consistently under 12ms.
+Longer answer: It definitely works, and latency from my house, over the internet, and back seems to be pretty consistently under 12ms. Not bad at all, especially considering how many hops there are!
 
 Are there other possible challenges or issues I'm not aware of today? Absolutely. Is there perhaps an even better way to do things? Very well may be! Does this work quite easily, _AND_ allow me to easily manage everything through GitOps? Yes, absolutely.
 
