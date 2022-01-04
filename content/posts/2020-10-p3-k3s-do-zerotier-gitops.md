@@ -4,7 +4,7 @@ date = 2020-10-17T10:45:00-04:00
 draft = false
 slug = "p3-k3s-digitalocean-zerotier-and-more"
 tags = ['zerotier','digitalocean','homelab','letsencrypt','turingpi','raspberrypi']
-categories = ['Networking','Zerotier','DigitalOcean','Router','TuringPi']
+categories = ['Networking','ZeroTier','DigitalOcean','Router','TuringPi']
 +++
 
 In part 3 of getting things up and going, we'll be covering how to get K3s installed on all of your nodes, getting Docker Hub set up, upgrading and configuring Traefik on K3s using Lens, and Associating a firewall with your Digital Ocean droplet.
@@ -20,7 +20,7 @@ In part 3 of getting things up and going, we'll be covering how to get K3s insta
 - You know how to use SCP to copy remote files locally
 - Your Raspberry Pi's are running HypriotOS
 - You have basic awareness of what Helm v3 is
-- You've already set up Zerotier on your Digital Ocean node after following through part 2 of this guide
+- You've already set up ZeroTier on your Digital Ocean node after following through part 2 of this guide
 - You've migrated a domain to Digital Ocean
 
 -----
@@ -193,7 +193,7 @@ At this point, all of your Raspberry Pi K3s nodes should be up and operational! 
 
 ### Deploying the K3s DO Worker Node
 
-For the Digital Ocean worker node, it's almost exactly like joining the Pi nodes. However, since we need this one to dial home over the Zerotier network, we've made a couple additions below. Specifically, we must specify the `flannel-iface` argument in the service file with the Zerotier interface name.
+For the Digital Ocean worker node, it's almost exactly like joining the Pi nodes. However, since we need this one to dial home over the ZeroTier network, we've made a couple additions below. Specifically, we must specify the `flannel-iface` argument in the service file with the ZeroTier interface name.
 
 ```bash
 # Escalate to root
@@ -203,7 +203,7 @@ sudo su
 AUTHTOKEN="AuthTokenFromAbove"
 MASTER_IP="Your.Master.Node.IP"
 
-# Flannel Interface must be set so that we can dial traffic across the Zerotier tunnel correctly.
+# Flannel Interface must be set so that we can dial traffic across the ZeroTier tunnel correctly.
 # Otherwise, things just won't work correctly!
 FLANNEL_IFACE="$(ip l | grep 'zt' | awk '{print substr($2,1,length($2)-1)}')"
 # k3s-node.service file taken from here:

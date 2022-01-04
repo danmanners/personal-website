@@ -1,7 +1,7 @@
 ARG HUGODIR="/opt/danmanners-dot-com"
 
 # Set up Hugo in Alpine to build the source
-FROM alpine:3.12 as hugo_build
+FROM alpine:3.14 as hugo_build
 ARG HUGODIR
 RUN apk add hugo --no-cache \
     && mkdir -p ${HUGODIR}
@@ -17,7 +17,7 @@ WORKDIR ${HUGODIR}
 RUN hugo --minify
 
 # Set up NGINX to serve the built Hugo compiled code
-FROM nginx:1.19.3-alpine as nginx
+FROM nginx:1.21.5-alpine as nginx
 ARG HUGODIR
 LABEL MAINTAINER="Dan Manners (daniel.a.manners@gmail.com)"
 COPY --from=hugo_build ${HUGODIR}/public /usr/share/nginx/html

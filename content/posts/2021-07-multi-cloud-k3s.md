@@ -129,7 +129,7 @@ TL;DR: Google sent me an email warning me that because I was cryptomining on my 
 </center>
 
 
-After a back and forth with Google over about 24 hours, my account was unlocked. According to Google Support, the syscalls from my host to the CPU were indicitive of cryptomining on my host, which they [**absolutely do not permit**](https://support.google.com/cloud/answer/7002354?hl=en#zippy=%2Cwhy-was-my-project-flagged-for-cryptocurrency-mining), and on a phone call made a comment along the lines of "they're always striving to improve their system monitoring and weed out false negatives." Fair enough, I guess; but here I am **very definitely not cryptomining** and I've been locked out of my account for trying to run K3s with Zerotier. Not great.
+After a back and forth with Google over about 24 hours, my account was unlocked. According to Google Support, the syscalls from my host to the CPU were indicitive of cryptomining on my host, which they [**absolutely do not permit**](https://support.google.com/cloud/answer/7002354?hl=en#zippy=%2Cwhy-was-my-project-flagged-for-cryptocurrency-mining), and on a phone call made a comment along the lines of "they're always striving to improve their system monitoring and weed out false negatives." Fair enough, I guess; but here I am **very definitely not cryptomining** and I've been locked out of my account for trying to run K3s with ZeroTier. Not great.
 
 They did accept my explanation, and unlocked my account, but it definitely meant I needed to figure out what the hell was going on.
 
@@ -145,7 +145,7 @@ After finding a GitHub issue regarding [packet flooding and high CPU usage](http
 }
 ```
 
-Without that, Zerotier would hit an odd issue where it would "loop" traffic from the K3s flannel CNI into the Zerotier network, and because everything is encrypted, it _looks_ like the host is cryptomining. [You can read more about it on the GitHub Issue linked here](https://github.com/zerotier/ZeroTierOne/issues/1423).
+Without that, ZeroTier would hit an odd issue where it would "loop" traffic from the K3s flannel CNI into the ZeroTier network, and because everything is encrypted, it _looks_ like the host is cryptomining. [You can read more about it on the GitHub Issue linked here](https://github.com/zerotier/ZeroTierOne/issues/1423).
 
 ## Where things ultimately landed
 

@@ -1,10 +1,10 @@
 +++
-title = "Part 1: K3s, Zerotier, DigitalOcean, and more...Oh my!"
+title = "Part 1: K3s, ZeroTier, DigitalOcean, and more...Oh my!"
 date = 2020-10-11T10:56:31-04:00
 draft = false
 slug = "k3s-digitalocean-zerotier-and-more"
 tags = ['kubernetes','k3s','zerotier','digitalocean','homelab','gitops','GitHub','GitHub_actions','letsencrypt','turingpi']
-categories = ['Networking','Kubernetes','Zerotier','GitOps','DigitalOcean','TuringPi','Raspberry Pi']
+categories = ['Networking','Kubernetes','ZeroTier','GitOps','DigitalOcean','TuringPi','Raspberry Pi']
 +++
 
 For a while, I've wanted to figure out some ways to bridge the gap with homelabbing and professional cloud environments. Generally it's expensive, complicated, or both to get it all working. What I'm hoping to help folks understand is that you can do it well, cheap, and keep it all maintained and up to date with modern practices like GitOps.
@@ -26,7 +26,7 @@ There's so much to cover here, so let's start with a brief overview of ALL of th
 * [Docker BuildX](https://GitHub.com/docker/buildx) - Docker CLI plugin for extended build capabilities with BuildKit
 * [Docker Hub](https://hub.docker.com/) - Docker's Container Repository
 * [HypriotOS](https://blog.hypriot.com/downloads/) - container OS that takes you from Zero to Docker within 5 Minutes
-* [Zerotier](https://www.zerotier.com/) - Virtual Ethernet switch for planet Earth
+* [ZeroTier](https://www.zerotier.com/) - Virtual Ethernet switch for planet Earth
 * [Ansible](https://www.ansible.com/) - Agentless IT Automation
 * A domain name you own and can host with DigitalOcean
 
@@ -70,13 +70,13 @@ For hardware in my homelab, here's what I would recommend for Hardware and Netwo
 1. One [Turing Pi](https://turingpi.com/)
     * Four (or more) [CM3+/8GB](https://www.digikey.com/en/products/detail/raspberry-pi/CM3-8GB/9866294) units;
     * My storage needs are limited, so the 8GB units are fine for me. [Jeff Gerrling did a fantastic YouTube video](https://youtu.be/IoMxpndlDWI?t=406) on how much faster eMMC storage is over MicroSD storage. I'd recommend going the eMMC route.
-2. Zerotier Router VM (or an additional Pi that will not be on your K8s Cluster)
+2. ZeroTier Router VM (or an additional Pi that will not be on your K8s Cluster)
     * 2 vCPU
     * 4 GB Memory
     * 10GB Disk
 3. Static Route on primary home/homelab router
-    * Gateway should be set to `eth0` IP address on Zerotier Router VM
-    * Destination Address should match the subnet of the configured Zerotier network
+    * Gateway should be set to `eth0` IP address on ZeroTier Router VM
+    * Destination Address should match the subnet of the configured ZeroTier network
 
 ### DigitalOcean
 

@@ -3,7 +3,7 @@ draft = false
 date = 2020-09-07T21:57:03-04:00
 title = "ZeroTier makes Homelab VPN Easy"
 tags = ['networking','zerotier','homelab','digitalocean','cloud','hybrid-cloud']
-categories = ['networking','Zerotier','routing']
+categories = ['networking','ZeroTier','routing']
 +++
 
 # ZeroTier makes Homelab VPN Easy

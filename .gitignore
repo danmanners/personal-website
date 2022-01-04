@@ -1,7 +1,9 @@
 # Ignore Filetypes
 public.zip
 *.un~
-*.DS_Store
+.DS_Store
+.hugo_build.lock
+*.lock
 
 # Ignore Folders
 public/

@@ -4,10 +4,10 @@ date = 2020-10-13T19:18:00-04:00
 draft = false
 slug = "p2-k3s-digitalocean-zerotier-and-more"
 tags = ['zerotier','digitalocean','homelab','letsencrypt','turingpi','raspberrypi']
-categories = ['Networking','Zerotier','DigitalOcean','Router','TuringPi']
+categories = ['Networking','ZeroTier','DigitalOcean','Router','TuringPi']
 +++
 
-In part 2 of getting everything up and going, we'll be covering Turing Pi prep with multiple nodes, creating a Droplet in Digital Ocean, creating your Zerotier network, joining your DO droplet to the Zerotier network as a client, and the requirements and setup for a system in your homelab acting as a router for Zerotier.
+In part 2 of getting everything up and going, we'll be covering Turing Pi prep with multiple nodes, creating a Droplet in Digital Ocean, creating your ZeroTier network, joining your DO droplet to the ZeroTier network as a client, and the requirements and setup for a system in your homelab acting as a router for ZeroTier.
 
 <center>
 <img src="/static/images/posts/k3s-do-zerotier-gitops/TuringPi.jpg" style="border-radius: 25px; width:60%; height:60%">
@@ -17,7 +17,7 @@ In part 2 of getting everything up and going, we'll be covering Turing Pi prep w
 
 - Router for your Lab/Home which can have static routes set
 - Laptop/Desktop running Mac/Windows/Linux to program your Pi's with
-- 1 System to act as the Zerotier router
+- 1 System to act as the ZeroTier router
 - 1 Turing Pi
 - 1 Micro USB to USB Type A (or Type C, if you're system has it)
 - 2+ Systems to act as k3s nodes
@@ -30,8 +30,8 @@ For the purpose of this guide, I'm going to assume the following things:
 - You have an existing Digital Ocean account, or **use [this link](https://m.do.co/c/a286136cde19) to get $100 in free credit** with a new account.
   - You have the capability to follow instructions and add your own SSH key.
   - I'll also get $25 for free, so that's pretty great.
-- You have or can create a free account with Zerotier ([Link here](https://accounts.zerotier.com/auth/realms/zerotier/protocol/openid-connect/auth?client_id=zt-central&redirect_uri=https%3A%2F%2Fmy.zerotier.com%2Fapi%2F_auth%2Foidc%2Fcallback&response_type=code&scope=all&state=state)).
-- You know how to and have the capability to add static routes on your router to point to the Zerotier network.
+- You have or can create a free account with ZeroTier ([Link here](https://accounts.zerotier.com/auth/realms/zerotier/protocol/openid-connect/auth?client_id=zt-central&redirect_uri=https%3A%2F%2Fmy.zerotier.com%2Fapi%2F_auth%2Foidc%2Fcallback&response_type=code&scope=all&state=state)).
+- You know how to and have the capability to add static routes on your router to point to the ZeroTier network.
 
 ## Building the Pi Cluster
 
@@ -64,6 +64,7 @@ sudo systemctl reboot
 ```
 
 Alternatively, if you want a "one-liner", you can instead run:
+
 ```bash
 ssh pirate@$ipAddress -t "sudo hostnamectl set-hostname $NEW_HOSTNAME && sudo sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg && sudo systemctl reboot"
 ```
@@ -112,7 +113,7 @@ We'll come back to this in a few minutes.
 
 ## ZeroTier
 
-Navigate to the the [Zerotier Network page](https://my.zerotier.com/network), log in, and click **Create a Network**. Click on the newly created ID and ensure that the Access Control settings are set to **Private**. You may also want to set a real name for this network instead of the random words it creates initially. Make a note of the newly created ID, but for simplicity sake let's pretend that it's `ba0348ec2d6679b4`.
+Navigate to the the [ZeroTier Network page](https://my.zerotier.com/network), log in, and click **Create a Network**. Click on the newly created ID and ensure that the Access Control settings are set to **Private**. You may also want to set a real name for this network instead of the random words it creates initially. Make a note of the newly created ID, but for simplicity sake let's pretend that it's `ba0348ec2d6679b4`.
 
 That's it for the moment, but we'll be right back in a few minutes.
 
@@ -134,7 +135,7 @@ Back on the ZeroTier Network page, scroll down to **Members** and you should see
 I'm going to assume that the host you'll be setting things up on is a Debian base. Here are roughly what the commands (and output) will look like
 
 ```bash
-# Install Zerotier and join to the previous network
+# Install ZeroTier and join to the previous network
 curl -s https://install.zerotier.com | sudo bash
 sudo zerotier-cli join ba0348ec2d6679b4
 
@@ -145,7 +146,7 @@ sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 # Set up iptables rules
 ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}'
 # eth0        <== This is our physical ethernet
-# ztyou2j6dw  <==This is our Zerotier Virtual Adapter
+# ztyou2j6dw  <==This is our ZeroTier Virtual Adapter
 PHY_IFACE="eth0"
 ZT_IFACE="$(ip l | grep 'zt' | awk '{print substr($2,1,length($2)-1)}')" # <== This command will grab your ZeroTier interface name
 sudo iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
@@ -156,11 +157,11 @@ sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
 sudo apt install iptables-persistent
 sudo bash -c iptables-save > /etc/iptables/rules.v4
 
-# Ensure that Zerotier always comes back up after a reboot
+# Ensure that ZeroTier always comes back up after a reboot
 sudo systemctl enable zerotier-one
 ```
 
-Once that's all complete, navigate back to the network page in Zerotier. Once again, scroll down to **Members** and you should see a new client. This is the 'Zerotier Router' we're building now! Click the checkbox under **Auth?** and set a human-readable name.
+Once that's all complete, navigate back to the network page in ZeroTier. Once again, scroll down to **Members** and you should see a new client. This is the 'ZeroTier Router' we're building now! Click the checkbox under **Auth?** and set a human-readable name.
 
 Next, copy the **Managed IP** and scroll back up to **Advanced > Managed Routes**. Under **Add Routes**, set the destination for the subnet of the **eth0** interface from above, and **(via)** to the **Managed IP** from below. This will allow your Digital Ocean droplet to communicate to the Pi's on your network.
 
@@ -203,7 +204,7 @@ In part 3, I'll be covering:
 ## Helpful Links & References
 
 - **serverfault** - [How to get your ethernet interface names](https://serverfault.com/a/845116)
-- **Zerotier Docs** - [Route between ZeroTier and Physical Networks](https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks)
+- **ZeroTier Docs** - [Route between ZeroTier and Physical Networks](https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks)
 
 # Questions? Thoughts?
 

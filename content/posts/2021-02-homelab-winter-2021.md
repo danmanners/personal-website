@@ -69,7 +69,7 @@ There's a lot of new hardware here compared to the one Hypervisor with local sto
 
 ## What am I doing with it all
 
-With the standard virtualization, I've been primarily using it to run various Kubernetes clusters. Between clusters launched with `kubeadm`, `rke`, and `k3s`, it's been an excellent learning lab environment. Additionally, I'm hosting virtual machines for a Zerotier router, Unifi Controller, and PiHole.
+With the standard virtualization, I've been primarily using it to run various Kubernetes clusters. Between clusters launched with `kubeadm`, `rke`, and `k3s`, it's been an excellent learning lab environment. Additionally, I'm hosting virtual machines for a ZeroTier router, Unifi Controller, and PiHole.
 
 The [QNAP TS-332X](https://www.qnap.com/en-us/product/ts-332x) has proven itself as a surprisingly great little NAS, and the SFP+ connectivity with two of the big hypervisors has been fantastic. I can max out network speeds at nearly 4Gbps, or just about 500MBps read/write on the SSDs, or about 2Gbps read/write on the spinning drives at nearly 250MBps. Initially, I was incredibly skeptical of how its performance might look with a smaller ARM processor, but I've been quite impressed with the [Anapura Labs Alpine AL324](https://en.wikipedia.org/wiki/Annapurna_Labs#AL324) processor in it. 
 
