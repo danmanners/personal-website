@@ -37,7 +37,16 @@ sudo pacman -Sy podman buildah qemu-arch-extra
 
 Building a single container for a different architecture than the hardware you're building it on isn't too hard, and there are a number of pretty good guides available. **HOWEVER**, there definitely seems to be a gap when you're talking about using `podman`/`buildah` and not `docker buildx` to build multi-architecture images.
 
-It's not nearly as clean with `podman/`buildah`, but here's what you'll want to do.
+With `docker buildx`, here's what a normal multi-architecture build command might look like:
+
+```bash
+docker buildx build \
+    --platform linux/amd64,linux/arm64 \
+    --tag ghcr.io/danmanners/isbonnierecording-backend \
+    --push backend
+```
+
+Very clean, very easy to understand what's going on, and it'll build both images in parallel, which speeds up the time it takes to build your images. While it is not nearly as clean with `podman`/`buildah`, here's what you'll want/need to do.
 
 ```bash
 # Set your manifest name
