@@ -23,7 +23,7 @@ The Turing Pi 2 is a Mini-ITX system board which allows up to **four** compute m
 
 | Slot 1                                     | Slot 2    | Slot 3                  | Slot 4                                                                 |
 |:-------------------------------------------|:----------|:------------------------|:-----------------------------------------------------------------------|
-| mini-PCIe</br>SIM-card slot<br>GPIO 40-pin | mini-PCIe | 2x SATA III</br>(6Gbps) | 4x USB 3.0 Ports</br>- 2x on Rear IO</br>- 2x on Front-Panel Connector |
+| mini-PCIe</br>SIM-card slot<br>GPIO 40-pin<br>HDMI | mini-PCIe | 2x SATA III</br>(6Gbps) | 4x USB 3.0 Ports</br>- 2x on Rear IO</br>- 2x on Front-Panel Connector |
 
 <center>
     <img src="static/images/posts/turingpi2/03-turingpi2-ports.png" alt="Turing Pi 2" style="margin: 20px 0px">
