@@ -23,8 +23,8 @@ The Turing Pi 2 is a Mini-ITX system board which allows up to **four** compute m
 
 > To utilize the board to it's fullest potential, you will want to fully populate all four node slots!
 
-| Slot 1                      | Slot 2    | Slot 3  | Slot 4                                                                 |
-|:----------------------------|:----------|:--------|:-----------------------------------------------------------------------|
+| Slot 1                                     | Slot 2    | Slot 3                  | Slot 4                                                                 |
+|:-------------------------------------------|:----------|:------------------------|:-----------------------------------------------------------------------|
 | mini-PCIe</br>SIM-card slot<br>GPIO 40-pin | mini-PCIe | 2x SATA III</br>(6Gbps) | 4x USB 3.0 Ports</br>- 2x on Rear IO</br>- 2x on Front-Panel Connector |
 
 <center>
@@ -33,10 +33,10 @@ The Turing Pi 2 is a Mini-ITX system board which allows up to **four** compute m
 
 The Turing Pi 2 has dual-Gigabit Ethernet NICs, and a Realtek switch chip which supports Layer 2+ capabilities<sup>1</sup> as well as LACP<sup>2</sup>. With gigabit speeds on the NIC as well as to each compute module, each node will be able to utilize full gigabit speed, which is a major improvement from the Turing Pi 1 and the Compute Module 3/3+, which was limited to 10/100Mbps full-duplex network speeds.
 
-The board has an IP-enabled baseboard management controller<sup>3</sup>, similar to any enterprise-grade out-of-band management software. This will ultimately allow users to manage the network settings, manage power per-node, access serial connections, and flash nodes.
+The board has an IP-enabled baseboard management controller<sup>3</sup>, similar to any enterprise-grade out-of-band management software. This will allow users to manage the network settings, manage power per-node, access serial connections, and flash nodes.
 
 > <sup>1/2</sup>: While the pre-production unit does not have this functionality enabled, it is actively being worked on and will hopefully ship with that functionality enabled.
-> 
+>
 > <sup>3</sup>: The baseboard management controller is still a Work-in-Progress on the pre-production unit, but is actively in development and should ship with the functionality and features listed above.
 
 ## Why does the Turing Pi 2 matter?
@@ -51,7 +51,7 @@ As someone [who absolutely believes in the future of the ARM64 ISA](https://jump
 
 The Turing Pi 2 matters because it's the first _tangible proof_ that ARM64 is not just for Apple or the enterprise (see: [AWS Graviton](https://aws.amazon.com/ec2/graviton/)); ARM64 ISA's have a real place in the homelab outside of individual Raspberry Pi nodes, and a real place in small and large businesses looking for easy clustering (see: [Chick-Fil-A Edge Computing](https://medium.com/@cfatechblog/bare-metal-k8s-clustering-at-chick-fil-a-scale-7b0607bd3541)).
 
-Another major benefit of the Turing Pi 2 is that it is absolutelt built for hybrid-cloud workloads right out of the box! I've been hosting services on the Turing Pi 2 from my homelab with [Rancher K3s](https://k3s.io/) quite successfully for several weeks as of writing this. Some of the services that have been running are:
+Another major benefit of the Turing Pi 2 is that it is absolutely built for hybrid-cloud workloads right out of the box! I've been hosting services on the Turing Pi 2 from my homelab with [Rancher K3s](https://k3s.io/) quite successfully for several weeks as of writing this. Some of the services that have been running are:
 
 - [Excalidraw](https://github.com/excalidraw/excalidraw)
 - [Tekton CI/CD](https://tekton.dev/)
@@ -94,9 +94,9 @@ I've even gone through and evaluated an [NGFF (mini-PCIe) to NVMe Adapter with a
 
 ## What's next?
 
-The Turing Pi 2 team will be launching their kickstarter in the near future, and I cannot wait to purchase a second unit. While I truly believe that the Turing Pi 1 was more of a niche product, pending the availability of Raspberry Pi Compute Module 4 units during the [global everything shortage](https://www.raspberrypi.com/news/supply-chain-shortages-and-our-first-ever-price-increase/), I think that the Turing Pi 2 could be an absolute home-run of a product for tech enthusiasts, anyone learning about Kubernetes, anyone with an interest in ARM64-based systems, and anyone wanting a low-power and efficient learning environment. Once this becomes available, I'm unsure there's going to be much else I'll be able to recommend that can offer so much bang-for-your-buck.
+The Turing Pi 2 team will be launching their Kickstarter in the near future, and I cannot wait to purchase a second unit. While I truly believe that the Turing Pi 1 was more of a niche product, pending the availability of Raspberry Pi Compute Module 4 units during the [global everything shortage](https://www.raspberrypi.com/news/supply-chain-shortages-and-our-first-ever-price-increase/), I think that the Turing Pi 2 could be an absolute home-run of a product for tech enthusiasts, anyone learning about Kubernetes, anyone with an interest in ARM64-based systems, and anyone wanting a low-power and efficient learning environment. Once this becomes available, I'm unsure there's going to be much else I'll be able to recommend that can offer so much bang-for-your-buck.
 
-## Final Notes
+## Final Notes & Disclosures
 
 Turing Pi **did not** financially compensate me for this post; this is 100% because I love this board and what I think it means for the future of low-power cluster computing. They did however send the pre-production board shown at no cost to me.
 
@@ -105,7 +105,5 @@ If you're looking to join the Official Turing Pi Discord Server, click the Disco
 <center><a href="https://discord.com/invite/uNbysyc">
     <img src="static/images/posts/turingpi2/Discord-Logo-Color.png" width="10%">
 </a></center>
-
-# Questions? Thoughts?
 
 Feel free to ping me at [daniel.a.manners@gmail.com](mailto:daniel.a.manners@gmail.com). If something I wrote isn't clear, feel free to ask me a question or ask me to update it!
