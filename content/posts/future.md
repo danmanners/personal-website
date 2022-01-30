@@ -7,10 +7,6 @@ tags = ['kubernetes','k3s','zerotier','digitalocean','homelab','gitops','GitHub'
 categories = ['Networking','Kubernetes','ZeroTier','GitOps','DigitalOcean']
 +++
 
-## Generating a Docker Hub API key
-
-### Generating API Tokens
-
 ## Creating up your K3s GitHub Infrastructure Repo
 
 -----

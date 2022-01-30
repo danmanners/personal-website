@@ -6,7 +6,7 @@ theme = "hugo-coder"
 googleAnalytics = "UA-131029076-1"
 
 # Specific Customization
-paginate = 20
+paginate = 30
 canonifyurls = true
 pygmentscodefences = true
 PygmentsStyle = "monokai"
