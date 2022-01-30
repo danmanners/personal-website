@@ -35,13 +35,13 @@ unsafe = true
 [[params.social]]
     name = "Github"
     icon = "fab fa-github fa-2x"
-    weight = 1
+    weight = 3
     url = "https://github.com/danmanners/"
 [[params.social]]
-    name = "Gitlab"
-    icon = "fab fa-gitlab fa-2x"
-    weight = 2
-    url = "https://gitlab.com/danmanners/"
+    name = "Twitter"
+    icon = "fab fa-twitter fa-2x "
+    weight = 3
+    url = "https://twitter.com/DamNanners"
 [[params.social]]
     name = "LinkedIn"
     icon = "fab fa-linkedin fa-2x"
