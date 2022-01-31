@@ -7,6 +7,11 @@ tags = ['turingpi','raspberrypi','on-prem','cloud','compute','turingpi']
 categories = ['Kubernetes','Raspberry Pi','Turing Pi','Networking']
 +++
 
+<meta property="og:title" content="The TuringPi v2 - A New Generation of Power-Efficient Cluster Computing" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/static/images/posts/turingpi2/02-turingpi2.jpg" />
+<meta property="og:url" content="https://www.danmanners.com/posts/2022-01-turingpi-v2/" />
+
 I'm unfortunately not the first person to come out with a review of the [Turing Pi 2](https://turingpi.com/); not even the second or third! [Jeff Geerling](https://www.youtube.com/c/JeffGeerling), [Techno Tim](https://www.youtube.com/channel/UCOk-gHyjcWZNj3Br4oxwh0A), and [LearnLinuxTV](https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA) on YouTube have all gotten their hands on the board as well, and they've done individually fantastic dives into the hardware, what it can do, and even offered some comparisons with other hardware in Jeff's video ([16:40](https://youtu.be/IUPYpZBfsMU?t=1000)).
 
 So while I want to touch on the hardware, I don't want to dive into everything that the other reviewers have already covered. I'd like to help you understand, from my perspective, _why_ the Turing Pi 2 might be one of the most exciting pieces of technology in the past few years, and why it might be my favorite piece of technology in 2022.
